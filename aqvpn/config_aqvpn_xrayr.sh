@@ -112,5 +112,3 @@ Nodes:
 EOF
     wget https://raw.githubusercontent.com/AQSaikato/key_pem/main/fullchain.pem -O /etc/XrayR/server.pem
     wget https://raw.githubusercontent.com/AQSaikato/key_pem/main/privkey.pem -O /etc/XrayR/privkey.pem
-
-XrayR start
