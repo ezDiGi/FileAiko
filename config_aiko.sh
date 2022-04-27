@@ -79,7 +79,7 @@ Nodes:
   -
     PanelType: "V2board" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
     ApiConfig:
-      ApiHost: "https://nhkvpn.net"
+      ApiHost: "https://aikocute.com"
       ApiKey: "adminadminadminadminadmin"
       NodeID: $idvmess
       NodeType: V2ray # Node type: V2ray, Trojan, Shadowsocks, Shadowsocks-Plugin
