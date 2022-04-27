@@ -1,65 +1,63 @@
 #!/bin/bash
 echo -e "-------------------------"
-    echo -e "[1] Config Trojan [TLS]"
-    echo -e "[2] Config V2Ray"
-    echo -e "[3] Config V2Ray+Trojan [TLS]"
-    echo -e "Enter - Mặc định - V2ray-AikoCute"
-    echo -e "-------------------------"
-    read -p "Vui lòng chọn config cấu hình: " nhk_choose
-    if [ "$nhk_choose" == "1" ]; then 
-    
-    echo -e "${green}Đặt số nút Trên Web V2Board-Trojan${plain}"
-    echo ""
-    read -p "Vui lòng nhập node ID :" nhk_node_id
-    [ -z "${nhk_node_id}" ]
-    echo "---------------------------"
-    echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
-    echo "---------------------------"
-    echo ""
+echo -e "[1] Config Trojan [TLS]"
+echo -e "[2] Config V2Ray"
+echo -e "[3] Config V2Ray+Trojan [TLS]"
+echo -e "Enter - Mặc định - V2ray-AikoCute"
+echo -e "-------------------------"
+read -p "Vui lòng chọn config cấu hình: " nhk_choose
+if [ "$nhk_choose" == "1" ]; then
 
-    
-    echo "Tên Miền của nút Trojan 'testcode.aikocute.com'"
-    echo ""
-    read -p "Vui lòng Nhập domain :" nhk_domain
-    [ -z "${nhk_domain}" ]
-    echo "---------------------------"
-    echo -e "${green}Tên miền của bạn đặt là: ${nhk_domain}${plain}"
-    echo "---------------------------"
-    
-    wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-Trojan.yml -O /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/CertDomain:.*/CertDomain: ${nhk_domain}/g" /etc/XrayR/config.yml
-    elif [ "$nhk_choose" == "2" ]; then
+  echo -e "${green}Đặt số nút Trên Web V2Board-Trojan${plain}"
+  echo ""
+  read -p "Vui lòng nhập node ID :" nhk_node_id
+  [ -z "${nhk_node_id}" ]
+  echo "---------------------------"
+  echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
+  echo "---------------------------"
+  echo ""
 
-    
-    echo "---------------------------"
-    echo -e "${green}Đặt số nút Trên Web V2Board-V2ray${plain}"
-    echo ""
-    read -p "Vui lòng nhập node ID :" nhk_node_id
-    [ -z "${nhk_node_id}" ]
-    echo "---------------------------"
-    echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
-    echo "---------------------------"
-    echo ""
+  echo "Tên Miền của nút Trojan 'testcode.aikocute.com'"
+  echo ""
+  read -p "Vui lòng Nhập domain :" nhk_domain
+  [ -z "${nhk_domain}" ]
+  echo "---------------------------"
+  echo -e "${green}Tên miền của bạn đặt là: ${nhk_domain}${plain}"
+  echo "---------------------------"
 
-    wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-V2ray.yml -O /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
-    
-    elif [ "$nhk_choose" == "3" ]; then
-	read -p "Số node ID Trojan :" idtrojan
-	echo "---------------"
-    read -p "Số node ID Vmess :" idvmess
-	echo "---------------"
-	read -p "CertDomain của bạn là :" CertDomain
-	echo "---------------"
+  wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-Trojan.yml -O /etc/XrayR/config.yml
+  sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
+  sed -i "s/CertDomain:.*/CertDomain: ${nhk_domain}/g" /etc/XrayR/config.yml
+elif [ "$nhk_choose" == "2" ]; then
 
-	rm -f /etc/XrayR/config.yml
-	if [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]]; then
-		curl https://get.acme.sh | sh -s email=script@github.com
-		source ~/.bashrc
-		bash ~/.acme.sh/acme.sh --upgrade --auto-upgrade
-	fi
-         cat <<EOF >/etc/XrayR/config.yml
+  echo "---------------------------"
+  echo -e "${green}Đặt số nút Trên Web V2Board-V2ray${plain}"
+  echo ""
+  read -p "Vui lòng nhập node ID :" nhk_node_id
+  [ -z "${nhk_node_id}" ]
+  echo "---------------------------"
+  echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
+  echo "---------------------------"
+  echo ""
+
+  wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-V2ray.yml -O /etc/XrayR/config.yml
+  sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
+
+elif [ "$nhk_choose" == "3" ]; then
+  read -p "Số node ID Trojan :" idtrojan
+  echo "---------------"
+  read -p "Số node ID Vmess :" idvmess
+  echo "---------------"
+  read -p "CertDomain của bạn là :" CertDomain
+  echo "---------------"
+
+  rm -f /etc/XrayR/config.yml
+  if [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]]; then
+    curl https://get.acme.sh | sh -s email=script@github.com
+    source ~/.bashrc
+    bash ~/.acme.sh/acme.sh --upgrade --auto-upgrade
+  fi
+  cat <<EOF >/etc/XrayR/config.yml
 
 Log:
   Level: none # Log level: none, error, warning, info, debug 
@@ -160,30 +158,27 @@ Nodes:
           CLOUDFLARE_API_KEY: 20ddd8957fa907c2c3ac6f49497fb05ab40e7
 EOF
 
+else
 
-    else
-    echo "---------------------------"
-    echo -e "${green}Đặt số nút Trên Web V2Board-Trojan+V2ray${plain}"
-    echo ""
-    read -p "Vui lòng nhập node ID :" nhk_node_id
-    [ -z "${nhk_node_id}" ]
-    echo "---------------------------"
-    echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
-    echo "---------------------------"
-    echo ""
+  echo "---------------------------"
+  echo -e "${green}Đặt số nút Trên Web V2Board-Trojan+V2ray${plain}"
+  echo ""
+  read -p "Vui lòng nhập node ID :" nhk_node_id
+  [ -z "${nhk_node_id}" ]
+  echo "---------------------------"
+  echo -e "${green}Node ID của bạn đặt là: ${nhk_node_id}${plain}"
+  echo "---------------------------"
+  echo ""
 
-    
-    echo "Tên Miền của nút Trojan 'testcode.aikocute.com'"
-    echo ""
-    read -p "Vui lòng Nhập domain :" nhk_domain
-    [ -z "${nhk_domain}" ]
-    echo "---------------------------"
-    echo -e "${green}Tên miền của bạn đặt là: ${nhk_domain}${plain}"
-    echo "---------------------------"
+  echo "Tên Miền của nút Trojan 'testcode.aikocute.com'"
+  echo ""
+  read -p "Vui lòng Nhập domain :" nhk_domain
+  [ -z "${nhk_domain}" ]
+  echo "---------------------------"
+  echo -e "${green}Tên miền của bạn đặt là: ${nhk_domain}${plain}"
+  echo "---------------------------"
 
-
-    
-    wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
-    sed -i "s/CertDomain:.*/CertDomain: ${nhk_domain}/g" /etc/XrayR/config.yml
-    fi
+  wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/nhk/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
+  sed -i "s/NodeID:.*/NodeID: ${nhk_node_id}/g" /etc/XrayR/config.yml
+  sed -i "s/CertDomain:.*/CertDomain: ${nhk_domain}/g" /etc/XrayR/config.yml
+fi
