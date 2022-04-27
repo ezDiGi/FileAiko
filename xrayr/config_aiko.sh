@@ -3,22 +3,22 @@ echo -e "[0] Thoát"
 echo -e "[1] Config V2ray and trojan"
 read -p "Chọn giao thức: " choose_node_aiko
 if [ "$choose_node_aiko" == 0 ]; then
-    exit 0
+  exit 0
 elif [ "$choose_node_aiko" == 1 ]; then
-    read -p "Số node ID Trojan :" idtrojan
-	echo "---------------"
-    read -p "Số node ID Vmess :" idvmess
-	echo "---------------"
-	read -p "CertDomain của bạn là :" CertDomain
-	echo "---------------"
+  read -p "Số node ID Trojan :" idtrojan
+  echo "---------------"
+  read -p "Số node ID Vmess :" idvmess
+  echo "---------------"
+  read -p "CertDomain của bạn là :" CertDomain
+  echo "---------------"
 
-	rm -f /etc/XrayR/config.yml
-	if [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]]; then
-		curl https://get.acme.sh | sh -s email=script@github.com
-		source ~/.bashrc
-		bash ~/.acme.sh/acme.sh --upgrade --auto-upgrade
-	fi
-         cat <<EOF >/etc/XrayR/config.yml
+  rm -f /etc/XrayR/config.yml
+  if [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]]; then
+    curl https://get.acme.sh | sh -s email=script@github.com
+    source ~/.bashrc
+    bash ~/.acme.sh/acme.sh --upgrade --auto-upgrade
+  fi
+  cat <<EOF >/etc/XrayR/config.yml
 
 Log:
   Level: none # Log level: none, error, warning, info, debug 
@@ -118,6 +118,6 @@ Nodes:
           CLOUDFLARE_EMAIL: aaa
           CLOUDFLARE_API_KEY: bbb
 EOF
-    else
-        echo "Config file exists, skip"
-    fi
+else
+  echo "Config file exists, skip"
+fi
