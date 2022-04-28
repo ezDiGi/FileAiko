@@ -24,29 +24,23 @@ if [ "$choose_unlock_port" == "1" ]; then
     echo -e "Port $port_unlock đã được mở"
     echo -e "Nhấn [Enter] để tiếp tục"
     read -p ""
-    show_menu
 elif [ "$choose_unlock_port" == "2" ]; then
     if [ "$release" == "ubuntu" ]; then
         ufw status
         echo -e "Nhấn [Enter] để tiếp tục"
         read -p ""
-        show_menu
     elif [ "$release" == "debian" ]; then
         iptables -L
         echo -e "Nhấn [Enter] để tiếp tục"
         read -p ""
-        show_menu
     elif [ "$release" == "centos" ]; then
         firewall-cmd --list-all
         echo -e "Nhấn [Enter] để tiếp tục"
         read -p ""
-        show_menu
     else
         echo -e "Nhấn [Enter] để tiếp tục"
         read -p ""
-        show_menu
     fi
 else
     echo -e "${red}Bạn đã chọn sai, vui lòng chọn lại [1-2]${plain}"
-    unlock_port
 fi
