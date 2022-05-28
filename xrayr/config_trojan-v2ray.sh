@@ -19,8 +19,8 @@ if [ "$choose_node" == "1" ]; then
       domain="01.hk.aikocute.com"
 
       #Ghi file
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/HK-01/01.hk.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/HK-01/01.hk-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/HK-01/01.hk.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/HK-01/01.hk-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -29,8 +29,8 @@ elif [ "$choose_node" == "2" ]; then
       node_id="2"
       domain="01.sing.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/SG-01/01.sing.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/SG-01/01.sing-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/SG-01/01.sing.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/SG-01/01.sing-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -39,8 +39,8 @@ elif [ "$choose_node" == "3" ]; then
       node_id="3"
       domain="01.vn.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-01/01.vn.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-01/01.vn-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-01/01.vn.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-01/01.vn-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -49,8 +49,8 @@ elif [ "$choose_node" == "4" ]; then
       node_id="4"
       domain="02.vn.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-02/02.vn.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-02/02.vn-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-02/02.vn.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-02/02.vn-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -59,8 +59,8 @@ elif [ "$choose_node" == "5" ]; then
       node_id="5"
       domain="01.jp.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/JP-01/01.jp.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/JP-01/01.jp-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/JP-01/01.jp.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/JP-01/01.jp-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -69,8 +69,8 @@ elif [ "$choose_node" == "6" ]; then
       node_id="6"
       domain="01.us.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/US-01/01.us.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/US-01/01.us-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/US-01/01.us.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/US-01/01.us-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -79,8 +79,8 @@ elif [ "$choose_node" == "7" ]; then
       node_id="7"
       domain="03.vn.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-03/03.vn.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-03/03.vn-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-03/03.vn.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-03/03.vn-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -89,8 +89,8 @@ elif [ "$choose_node" == "8" ]; then
       node_id="8"
       domain="02.sing.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/SG-02/02.sing.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/SG-02/02.sing-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/SG-02/02.sing.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/SG-02/02.sing-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
@@ -99,8 +99,8 @@ elif [ "$choose_node" == "9" ]; then
       node_id="9"
       domain="04.vn.aikocute.com"
 
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-04/04.vn.pem -O /etc/XrayR/server.pem
-      wget https://raw.githubusercontent.com/AikoCute/aiko-pem/aiko/Pem/VN-04/04.vn-privkey.pem -O /etc/XrayR/privkey.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-04/04.vn.pem -O /etc/XrayR/server.pem
+      wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/VN-04/04.vn-privkey.pem -O /etc/XrayR/privkey.pem
       wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan%2BVmess.yml -O /etc/XrayR/config.yml
       sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
       sed -i "s/CertDomain:.*/CertDomain: ${domain}/g" /etc/XrayR/config.yml
