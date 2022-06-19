@@ -12,13 +12,16 @@ elif [ "$choose_node_aiko" == 1 ]; then
   read -p "CertDomain của bạn là :" CertDomain
   echo "---------------"
 
-  rm -f /etc/XrayR/config.yml
+  wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/Aiko-PemKey/key.pem -O /etc/XrayR/server.pem
+  wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/Aiko-PemKey/privkey.pem -O /etc/XrayR/privkey.pem
+
+  rm -f /etc/XrayR/aiko.yml
   if [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]]; then
     curl https://get.acme.sh | sh -s email=script@github.com
     source ~/.bashrc
     bash ~/.acme.sh/acme.sh --upgrade --auto-upgrade
   fi
-  cat <<EOF >/etc/XrayR/config.yml
+  cat <<EOF >/etc/XrayR/aiko.yml
 
 Log:
   Level: none # Log level: none, error, warning, info, debug 
@@ -30,7 +33,7 @@ InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound con
 OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnetionConfig:
   Handshake: 4 # Handshake time limit, Second
-  ConnIdle: 10000000000 # Connection idle time limit, Second
+  ConnIdle: 86400 # Connection idle time limit, Second
   UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
   BufferSize: 64 # The internal cache size of each connection, kB 
@@ -46,8 +49,8 @@ Nodes:
       EnableVless: false # Enable Vless for V2ray Type
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
-      DeviceLimit: 2 # Local settings will replace remote settings, 0 means disable
-      RuleListPath: # ./rulelist Path to local rulelist file
+      DeviceLimit: 3 # Local settings will replace remote settings, 0 means disable
+      RuleListPath:  /etc/XrayR/AikoBlock # ./rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -87,8 +90,8 @@ Nodes:
       EnableVless: false # Enable Vless for V2ray Type
       EnableXTLS: false # Enable XTLS for V2ray and Trojan
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
-      DeviceLimit: 2 # Local settings will replace remote settings, 0 means disable
-      RuleListPath: # ./rulelist Path to local rulelist file
+      DeviceLimit: 3 # Local settings will replace remote settings, 0 means disable
+      RuleListPath: /etc/XrayR/AikoBlock # ./rulelist Path to local rulelist file
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -121,3 +124,4 @@ EOF
 else
   echo "Config file exists, skip"
 fi
+

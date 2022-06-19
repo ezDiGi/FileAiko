@@ -55,6 +55,6 @@ read -p "Vui lòng chọn config cấu hình: " domain_trojan_aiko
           
     wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/Aiko-PemKey/key.pem -O /etc/XrayR/server.pem
     wget https://raw.githubusercontent.com/AikoCute/Aiko-Certificate/aiko/Pem/Aiko-PemKey/privkey.pem -O /etc/XrayR/privkey.pem
-    wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan.yml -O /etc/XrayR/config.yml
-    sed -i "s/NodeID:.*/NodeID: ${id_trojan_aiko}/g" /etc/XrayR/config.yml
-    sed -i "s/CertDomain:.*/CertDomain: ${domain_trojan_aiko}/g" /etc/XrayR/config.yml
+    wget https://raw.githubusercontent.com/AikoCute/Aiko-Config/aiko/Config-Trojan.yml -O /etc/XrayR/aiko.yml
+    sed -i "s/NodeID:.*/NodeID: ${id_trojan_aiko}/g" /etc/XrayR/aiko.yml
+    sed -i "s/CertDomain:.*/CertDomain: ${domain_trojan_aiko}/g" /etc/XrayR/aiko.yml
